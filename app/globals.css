@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: #0d0d12;
+  color: #f2ede1;
+}
+
+/* Faint spotlight glow behind the masthead, evokes a stage wash */
+.stage-wash {
+  background: radial-gradient(
+    ellipse 900px 400px at 50% -10%,
+    rgba(255, 183, 3, 0.14),
+    transparent 70%
+  );
+}
+
+/* Dotted "cue card" perforation edge */
+.cue-edge {
+  background-image: radial-gradient(
+    circle,
+    rgba(13, 13, 18, 0.35) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 10px 10px;
+  background-position: center;
+}
+
+.card-flip-enter {
+  animation: card-in 0.35s ease both;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
